@@ -1,4 +1,3 @@
-/* eslint-disable func-names, no-param-reassign */
 import { getRoot, types } from "mobx-state-tree";
 import AppModel from "./viewModels/AppModel";
 import MainViewModel from "./viewModels/MainViewModel";

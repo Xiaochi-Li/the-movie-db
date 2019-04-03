@@ -1,6 +1,8 @@
 import { types, destroy } from "mobx-state-tree";
 import MovieListViewModel from "./MovieListViewModel";
-export const ViewModel = types.union(MovieListViewModel);
+import MovieDetailsViewModel from "./MovieDetailsViewModel";
+
+export const ViewModel = types.union(MovieListViewModel, MovieDetailsViewModel);
 
 const MainViewModel = types
   .model("ViewModel", {

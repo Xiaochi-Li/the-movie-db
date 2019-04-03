@@ -9,6 +9,11 @@ const MovieListViewModel = BaseViewModel.named("MovieListViewModel")
     get movies() {
       return getRoot(self).appModel.movies;
     }
+  }))
+  .actions(self => ({
+    setSelectedMovieID(id) {
+      getRoot(self).appModel.selectMovie(id);
+    }
   }));
 
 export default MovieListViewModel;
