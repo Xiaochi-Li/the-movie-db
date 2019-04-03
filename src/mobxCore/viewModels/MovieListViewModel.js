@@ -1,14 +1,14 @@
-import { types, getRoot } from 'mobx-state-tree'
-import BaseViewModel from './BaseViewModel'
+import { types, getRoot } from "mobx-state-tree";
+import BaseViewModel from "./BaseViewModel";
 
-const MovieListViewModel = BaseViewModel.named('MovieListViewModel')
+const MovieListViewModel = BaseViewModel.named("MovieListViewModel")
   .props({
-    viewName: types.literal('MovieList')
+    viewName: types.literal("MovieList")
   })
-  .actions(self => ({
-    loadPopularMoview () {
-      getRoot(self).appModel.loadPopularMoview()
+  .views(self => ({
+    get movies() {
+      return getRoot(self).appModel.movies;
     }
-  }))
+  }));
 
-export default MovieListViewModel
+export default MovieListViewModel;

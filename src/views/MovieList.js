@@ -1,16 +1,21 @@
-import React from 'react'
-import withViewModel from '../utils/withViewModel'
-import { observer } from 'mobx-react'
+import React from "react";
+import withViewModel from "../utils/withViewModel";
+import { observer } from "mobx-react";
 
 const MovieList = props => {
-  const { loadPopularMoview } = props.viewModel
-  console.log(props.viewModel)
-  loadPopularMoview()
-  return <div />
-}
+  const { movies } = props.viewModel;
+  console.log(movies);
+  return (
+    <ul>
+      {movies.map(movie => (
+        <li>{movie.title}</li>
+      ))}
+    </ul>
+  );
+};
 
-MovieList.defaultProps = {}
+MovieList.defaultProps = {};
 
-MovieList.propTypes = {}
+MovieList.propTypes = {};
 
-export default withViewModel('MovieList')(observer(MovieList))
+export default withViewModel("MovieList")(observer(MovieList));
