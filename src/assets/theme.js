@@ -5,10 +5,12 @@ const theme = {
     background: "#081B23",
     main: "#01D277",
     text: {
-      light: "#FFFFFF",
-      largeTitle: "#E3F4FC",
-      smallTitle: "#E6F7FF",
-      description: "#9FBBC7"
+      white: "#FFFFFF",
+      light: "#E3F4FC",
+      mdLight: "#E6F7FF",
+      lightGrey:"#B8D8E6",
+      grey:"#A1D1E6",
+      mdGrey: "#9FBBC7"
     },
     voting: { low: "#D1225B", middle: "#4902A3", high: "#01D277" }
   },
@@ -17,7 +19,7 @@ const theme = {
     lg: "22px"
   },
   font: {
-    family: { roboto: "Roboto", montserrat: "Montserrat" },
+    family: { roboto: "Roboto", montserrat: " 'Montserrat', sans-serif" },
     size: { xsm: "12px", sm: "14px", md: "16px", lg: "20px", xlg: "28px" },
     lineHeight: { sm: "14px", md: "16px", lg: "24px", xlg: "30px" },
     weight: { normal: "normal", md: 500, bold: "bold" }
