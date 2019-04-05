@@ -14,4 +14,3 @@ export const fetchPolularMovies = () =>
     .catch(error => {
       throw error;
     });
-

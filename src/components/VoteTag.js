@@ -29,7 +29,7 @@ const VoteTag = ({ voteAverage, theme }) => {
 
   return (
     <StyledVoteTag tagColor={tagColor}>
-      <Typography variant={"caption3"}>{voteAverage}</Typography>
+      <Typography variant={"caption3"}>{`${voteAverage * 10}%`}</Typography>
     </StyledVoteTag>
   );
 };

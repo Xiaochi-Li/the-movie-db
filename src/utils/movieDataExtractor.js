@@ -8,7 +8,7 @@ const getImageUrl = (size, path) => {
 };
 
 const formatDate = date => {
-  const releaseDate = new  Date(date);
+  const releaseDate = new Date(date);
   const months = [
     "January",
     "February",
@@ -33,7 +33,6 @@ export function pickMovieProperties(OriginalMovie) {
     "title",
     "poster_path",
     "release_date",
-    "backdrop_path",
     "overview"
   ];
 
@@ -44,7 +43,6 @@ export function pickMovieProperties(OriginalMovie) {
     vote_average,
     title,
     poster_path,
-    backdrop_path,
     release_date,
     overview
   } = movieProperties;
@@ -52,7 +50,7 @@ export function pickMovieProperties(OriginalMovie) {
   const movie = {
     voteAverage: vote_average,
     posterPath: getImageUrl("w154", poster_path),
-    backdropPath: getImageUrl("w500", backdrop_path),
+    largePoster: getImageUrl("w500", poster_path),
     releaseDate: formatDate(release_date),
     id,
     title,

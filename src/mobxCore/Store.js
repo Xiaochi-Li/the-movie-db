@@ -1,4 +1,4 @@
-import { getRoot, types } from "mobx-state-tree";
+import { getRoot, types, applySnapshot } from "mobx-state-tree";
 import AppModel from "./viewModels/AppModel";
 import MainViewModel from "./viewModels/MainViewModel";
 
@@ -10,7 +10,12 @@ const StoreModel = types
   .views(self => ({}))
   .actions(self => ({
     loadPopularMovies() {
-      getRoot(self).appModel.loadPopularMovie();
+      if (localStorage.getItem("movieApp")) {
+        const localSnapshot = JSON.parse(localStorage.getItem("movieApp"));
+        applySnapshot(getRoot(self), localSnapshot);
+      } else {
+        getRoot(self).appModel.loadPopularMovie();
+      }
     }
   }));
 

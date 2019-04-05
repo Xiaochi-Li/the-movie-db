@@ -5,7 +5,7 @@ export const MovieModel = types.model("Movie", {
   voteAverage: types.number,
   title: types.string,
   posterPath: types.string,
-  backdropPath: types.string,
+  largePoster: types.string,
   overview: types.string,
   releaseDate: types.string
 });

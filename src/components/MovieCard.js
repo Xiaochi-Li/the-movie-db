@@ -3,6 +3,7 @@ import React from "react";
 import ThemePropTypes from "../assets/ThemePropTypes";
 import Image from "./Image";
 import Typography from "./Typography/Typography";
+import { Link } from "react-router-dom";
 
 const CardContainer = styled("div")(
   ({ theme }) => `
@@ -11,22 +12,28 @@ const CardContainer = styled("div")(
 `
 );
 
-const MovieCard = ({ movie }) => {
-  const { posterPath, voteAverage, releaseDate } = movie;
+const MovieCard = ({ movie, setSelectedMovieID }) => {
+  const { posterPath, voteAverage, releaseDate, id, title } = movie;
+
+  const handleSelectMovie = () => {
+    setSelectedMovieID(id);
+  };
 
   return (
-    <CardContainer>
-      <Image imageUrl={posterPath} voteAverage={voteAverage} />
-      {/*{}*/}
-      <Typography
-        customizeStyle={{ width: 154, margin: "6px 0" }}
-        variant={"h3"}
-      >
-        {movie.title}
-      </Typography>
+    <Link to={`movies/${id}`} key={id} style={{ textDecoration: "none" }}>
+      <CardContainer onClick={() => handleSelectMovie(movie.id)}>
+        <Image imageUrl={posterPath} voteAverage={voteAverage} />
+        {/*{}*/}
+        <Typography
+          customizeStyle={{ width: 154, margin: "6px 0" }}
+          variant={"h3"}
+        >
+          {title}
+        </Typography>
 
-      <Typography variant={"caption2"}>{releaseDate}</Typography>
-    </CardContainer>
+        <Typography variant={"caption2"}>{releaseDate}</Typography>
+      </CardContainer>
+    </Link>
   );
 };
 

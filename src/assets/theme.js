@@ -8,8 +8,8 @@ const theme = {
       white: "#FFFFFF",
       light: "#E3F4FC",
       mdLight: "#E6F7FF",
-      lightGrey:"#B8D8E6",
-      grey:"#A1D1E6",
+      lightGrey: "#B8D8E6",
+      grey: "#A1D1E6",
       mdGrey: "#9FBBC7"
     },
     voting: { low: "#D1225B", middle: "#4902A3", high: "#01D277" }

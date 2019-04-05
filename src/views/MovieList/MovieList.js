@@ -2,7 +2,6 @@ import React from "react";
 import withViewModel from "../../utils/withViewModel";
 import styled, { withTheme } from "styled-components";
 import { observer } from "mobx-react";
-import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
 import MovieListHeader from "./MovieListHeader";
@@ -32,9 +31,6 @@ const ListDisplay = styled("div")`
 
 const MovieList = ({ viewModel }) => {
   const { movies, setSelectedMovieID } = viewModel;
-  const handleSelectMovie = id => {
-    setSelectedMovieID(id);
-  };
 
   return (
     <ViewContainer>
@@ -46,16 +42,11 @@ const MovieList = ({ viewModel }) => {
         <ListDisplay>
           {movies.map(movie => {
             return (
-              <Link
-                to={`movies/${movie.id}`}
+              <MovieCard
                 key={movie.id}
-                style={{ textDecoration: "none" }}
-              >
-                <MovieCard
-                  onClick={handleSelectMovie(movie.id)}
-                  movie={movie}
-                />
-              </Link>
+                movie={movie}
+                setSelectedMovieID={setSelectedMovieID}
+              />
             );
           })}
         </ListDisplay>
