@@ -92,7 +92,7 @@ export default new Map([
     {
       style: {
         fontSize: size.xsm,
-        fontWeight: weight.normal,
+        fontWeight: weight.bold,
         lineHeight: lineHeight.sm,
         fontFamily: family.roboto,
         textAlign: "center",

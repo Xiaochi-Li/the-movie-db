@@ -24,6 +24,7 @@ const ListContainer = styled("div")`
 `;
 
 const ListDisplay = styled("div")`
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -39,11 +40,17 @@ const MovieList = ({ viewModel }) => {
     <ViewContainer>
       <MovieListHeader />
       <ListContainer>
-        <Typography variant={"h2"}>Popular Movies</Typography>
+        <Typography customizeStyle={{ margin: "0 0 12px 8px" }} variant={"h2"}>
+          Popular Movies
+        </Typography>
         <ListDisplay>
           {movies.map(movie => {
             return (
-              <Link to={`movies/${movie.id}`} key={movie.id}>
+              <Link
+                to={`movies/${movie.id}`}
+                key={movie.id}
+                style={{ textDecoration: "none" }}
+              >
                 <MovieCard
                   onClick={handleSelectMovie(movie.id)}
                   movie={movie}

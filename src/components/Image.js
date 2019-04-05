@@ -1,19 +1,36 @@
 import styled, { withTheme } from "styled-components";
 import React from "react";
-import ThemePropTypes from "../assets/ThemePropTypes";
+import PropTypes from "prop-types";
 
-const ImageContainer = styled("div")(
+import ThemePropTypes from "../assets/ThemePropTypes";
+import VoteTag from "./VoteTag";
+
+const StyledImageContainer = styled("div")(
   ({ theme }) => `
- min-width: 158px;
- width: 45%
+  position: relative;
+`
+);
+
+const StyledImage = styled("img")(
+  ({ theme }) => `
+  box-shadow: ${theme.boxShadow.sm};
+  border-radius: ${theme.borderRadius.sm};
 `
 );
 
 const Image = props => {
-  return <ImageContainer></ImageContainer>;
+  const { imageUrl, voteAverage } = props;
+
+  return (
+    <StyledImageContainer>
+      <StyledImage src={imageUrl} />
+      {<VoteTag voteAverage={voteAverage} />}
+    </StyledImageContainer>
+  );
 };
 
 Image.prototype = {
+  voteAverage: PropTypes.number,
   theme: ThemePropTypes.isRequired
 };
 

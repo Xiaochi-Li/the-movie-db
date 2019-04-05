@@ -6,5 +6,6 @@ export const MovieModel = types.model("Movie", {
   title: types.string,
   posterPath: types.string,
   backdropPath: types.string,
-  overview: types.string
+  overview: types.string,
+  releaseDate: types.string
 });
