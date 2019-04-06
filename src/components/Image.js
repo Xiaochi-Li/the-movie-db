@@ -13,24 +13,29 @@ const StyledImageContainer = styled("div")(
 
 const StyledImage = styled("img")(
   ({ theme }) => `
+  width: 100%;
   box-shadow: ${theme.boxShadow.sm};
   border-radius: ${theme.borderRadius.sm};
 `
 );
 
-const Image = props => {
-  const { imageUrl, voteAverage } = props;
-
+const Image = ({ imageUrl, voteAverage, showVoteTag }) => {
   return (
     <StyledImageContainer>
       <StyledImage src={imageUrl} />
-      {<VoteTag voteAverage={voteAverage} />}
+      {showVoteTag && <VoteTag voteAverage={voteAverage} />}
     </StyledImageContainer>
   );
 };
 
+Image.defaultProps = {
+  showVoteTag: false
+};
+
 Image.prototype = {
-  voteAverage: PropTypes.number,
+  showVoteTag: PropTypes.bool,
+  voteAverage: PropTypes.number.isRequired,
+  imageUrl: PropTypes.string.isRequired,
   theme: ThemePropTypes.isRequired
 };
 

@@ -7,10 +7,16 @@ import { Link } from "react-router-dom";
 
 const CardContainer = styled("div")(
   ({ theme }) => `
-  
   margin: 12px 8px;
 `
 );
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  width: 45%;
+  min-width: 120px;
+  max-width: 140px;
+`;
 
 const MovieCard = ({ movie, setSelectedMovieID }) => {
   const { posterPath, voteAverage, releaseDate, id, title } = movie;
@@ -20,21 +26,21 @@ const MovieCard = ({ movie, setSelectedMovieID }) => {
   };
 
   return (
-    <Link to={`movies/${id}`} key={id} style={{ textDecoration: "none" }}>
+    <StyledLink to={`movies/${id}`} key={id}>
       <CardContainer onClick={() => handleSelectMovie(movie.id)}>
-        <Image imageUrl={posterPath} voteAverage={voteAverage} />
-        {/*{}*/}
-        <Typography
-          customizeStyle={{ width: 154, margin: "6px 0" }}
-          variant={"h3"}
-        >
+        <Image imageUrl={posterPath} voteAverage={voteAverage} showVoteTag />
+        <Typography customizeStyle={{ margin: "6px 0" }} variant={"h3"}>
           {title}
         </Typography>
 
         <Typography variant={"caption2"}>{releaseDate}</Typography>
       </CardContainer>
-    </Link>
+    </StyledLink>
   );
+};
+
+MovieCard.defaultProps = {
+  hasText: false
 };
 
 MovieCard.prototype = {

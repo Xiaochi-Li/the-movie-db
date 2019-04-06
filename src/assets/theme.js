@@ -12,6 +12,7 @@ const theme = {
       grey: "#A1D1E6",
       mdGrey: "#9FBBC7"
     },
+    divider: "#0F303D",
     voting: { low: "#D1225B", middle: "#4902A3", high: "#01D277" }
   },
   borderRadius: {

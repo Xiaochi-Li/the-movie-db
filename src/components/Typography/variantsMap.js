@@ -13,6 +13,7 @@ export default new Map([
     "h1",
     {
       style: {
+        margin: "12px 0",
         fontSize: size.xlg,
         fontWeight: weight.bold,
         lineHeight: lineHeight.xlg,
@@ -65,13 +66,14 @@ export default new Map([
     "caption1",
     {
       style: {
+        margin: 0,
         fontSize: size.xsm,
         fontWeight: weight.normal,
         lineHeight: lineHeight.sm,
         fontFamily: family.roboto,
         color: color.text.lightGrey
       },
-      as: "span"
+      as: "h5"
     }
   ],
   [
