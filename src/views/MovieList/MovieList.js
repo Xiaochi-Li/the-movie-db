@@ -18,7 +18,7 @@ const ViewContainer = styled("div")(
 );
 
 const ListContainer = styled("div")`
-  margin-top: 66px;
+  margin-top: 44px;
   padding: 0 4%;
 `;
 

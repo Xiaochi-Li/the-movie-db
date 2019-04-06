@@ -1,15 +1,19 @@
 import styled, { withTheme } from "styled-components";
 import React from "react";
 
-const SearchInput = styled("input")(
-  ({ theme }) => `
+import MagnifyIcon from "mdi-react/MagnifyIcon";
+
+const Container = styled("div")`
   height: 44px;
   width: 90%;
-  position: absolute;
-  z-index: 1000000;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -10%);
+  transform: translate(5%, -10%);
+`;
+
+const SearchInput = styled("input")(
+  ({ theme }) => `
+  height: 100%;
+  width: 100%;
+  z-index: 1;
   font-family: ${theme.font.family.roboto};
   text-indent: 17px;
   color: ${theme.color.main};
@@ -25,8 +29,19 @@ const SearchInput = styled("input")(
     }
 `
 );
-const SearchBar = props => {
-  return <SearchInput type="text" placeholder="Search" />;
+const StyledMagnifyIcon = styled(MagnifyIcon)`
+  position: absolute;
+  top: 12px;
+  right: 12px;
+`;
+
+const SearchBar = ({ theme }) => {
+  return (
+    <Container>
+      <SearchInput type="text" placeholder="Search" />
+      <StyledMagnifyIcon color={theme.color.main} />
+    </Container>
+  );
 };
 
 export default withTheme(SearchBar);
