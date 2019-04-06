@@ -23,13 +23,13 @@ const HeaderContainer = styled("div")(
   background: ${theme.color.gradient};
 `
 );
-const MovieListHeader = props => {
+const MovieListHeader = ({ searchMovie }) => {
   return (
     <HeaderContainer>
       <Strips />
       <StyledLogo />
       <StyledLeftStrip />
-      <SearchBar />
+      <SearchBar searchMovie={searchMovie} />
     </HeaderContainer>
   );
 };

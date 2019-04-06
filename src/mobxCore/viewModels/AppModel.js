@@ -1,11 +1,12 @@
 import { types, flow, applySnapshot } from "mobx-state-tree";
 import { MovieModel } from "../models/MovieModel";
-import { fetchPolularMovies } from "../../utils/movieAPI";
+import { fetchPopularMovies, searchMovie } from "../../utils/movieAPI";
 import { getTrimmedMovieList } from "../../utils/movieDataExtractor";
 
 const AppModel = types
   .model("AppModel", {
     movies: types.array(MovieModel),
+    searchResult: types.array(MovieModel),
     selectedMovieID: types.maybeNull(types.number)
   })
   .views(self => ({
@@ -14,8 +15,15 @@ const AppModel = types
     }
   }))
   .actions(self => ({
+    afterCreate() {
+      self.loadPopularMovie();
+    },
     loadPopularMovie: flow(function* load() {
-      const response = yield fetchPolularMovies();
+      const response = yield fetchPopularMovies();
+      applySnapshot(self.movies, getTrimmedMovieList(response));
+    }),
+    searchMovie: flow(function* search(movieName) {
+      const response = yield searchMovie(movieName);
       applySnapshot(self.movies, getTrimmedMovieList(response));
     }),
     selectMovie(id) {

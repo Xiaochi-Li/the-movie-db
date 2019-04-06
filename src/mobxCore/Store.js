@@ -7,7 +7,6 @@ const StoreModel = types
     appModel: types.optional(types.late(() => AppModel), {}),
     mainViewModel: types.optional(MainViewModel, {})
   })
-  .views(self => ({}))
   .actions(self => ({
     loadPopularMovies() {
       if (localStorage.getItem("movieApp")) {

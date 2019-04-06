@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { fetchPolularMovies } from "./utils/movieAPI";
 import { Provider } from "mobx-react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
@@ -14,8 +13,6 @@ store.loadPopularMovies();
 onSnapshot(store, snapshot => {
   localStorage.setItem("movieApp", JSON.stringify(snapshot));
 });
-
-fetchPolularMovies();
 class App extends Component {
   render() {
     return (

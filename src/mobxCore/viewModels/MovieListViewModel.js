@@ -8,11 +8,17 @@ const MovieListViewModel = BaseViewModel.named("MovieListViewModel")
   .views(self => ({
     get movies() {
       return getRoot(self).appModel.movies;
+    },
+    get searchResult() {
+      return getRoot(self).appModel.searchResult;
     }
   }))
   .actions(self => ({
     setSelectedMovieID(id) {
       getRoot(self).appModel.selectMovie(id);
+    },
+    searchMovie(movieName) {
+      getRoot(self).appModel.searchMovie(movieName);
     }
   }));
 

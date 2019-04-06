@@ -30,11 +30,11 @@ const ListDisplay = styled("div")`
 `;
 
 const MovieList = ({ viewModel }) => {
-  const { movies, setSelectedMovieID } = viewModel;
+  const { movies, setSelectedMovieID, searchMovie } = viewModel;
 
   return (
     <ViewContainer>
-      <MovieListHeader />
+      <MovieListHeader searchMovie={searchMovie} />
       <ListContainer>
         <Typography customizeStyle={{ margin: "0 0 12px 8px" }} variant={"h2"}>
           Popular Movies

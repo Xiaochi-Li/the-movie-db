@@ -35,11 +35,14 @@ const StyledMagnifyIcon = styled(MagnifyIcon)`
   right: 12px;
 `;
 
-const SearchBar = ({ theme }) => {
+const SearchBar = ({ theme, searchMovie }) => {
   return (
     <Container>
       <SearchInput type="text" placeholder="Search" />
-      <StyledMagnifyIcon color={theme.color.main} />
+      <StyledMagnifyIcon
+        color={theme.color.main}
+        onClick={() => searchMovie("harry")}
+      />
     </Container>
   );
 };
