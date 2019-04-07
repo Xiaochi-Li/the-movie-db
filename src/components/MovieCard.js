@@ -15,7 +15,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   width: 45%;
   min-width: 120px;
-  max-width: 140px;
+  max-width: 180px;
 `;
 
 const MovieCard = ({ movie, setSelectedMovieID }) => {

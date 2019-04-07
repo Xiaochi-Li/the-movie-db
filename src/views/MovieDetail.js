@@ -5,7 +5,7 @@ import withViewModel from "../utils/withViewModel";
 import { Link } from "react-router-dom";
 import ArrowLeftIcon from "mdi-react/ArrowLeftIcon";
 import { Image } from "../components";
-import Typography from "../components/Typography/Typography";
+import { Typography } from "../components/";
 
 const ViewContainer = styled("div")(
   ({ theme }) => `
@@ -31,7 +31,7 @@ const BackIcon = styled(ArrowLeftIcon)`
 `;
 
 const ContentContainer = styled("div")`
-  margin: 20px;
+  margin: 5%;
   position: relative;
 
   @media (max-width: 420px) {
@@ -39,6 +39,11 @@ const ContentContainer = styled("div")`
   }
 
   @media (min-width: 421px) {
+    top: -150px;
+  }
+
+  @media (min-width: 600px) {
+    margin: 10%;
     top: -150px;
   }
 `;

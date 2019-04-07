@@ -1,12 +1,12 @@
 import styled, { withTheme } from "styled-components";
-import React from "react";
+import React, { useState } from "react";
 
 import MagnifyIcon from "mdi-react/MagnifyIcon";
 
 const Container = styled("div")`
   height: 44px;
   width: 90%;
-  transform: translate(5%, -10%);
+  transform: translate(5%, -30%);
 `;
 
 const SearchInput = styled("input")(
@@ -36,12 +36,22 @@ const StyledMagnifyIcon = styled(MagnifyIcon)`
 `;
 
 const SearchBar = ({ theme, searchMovie }) => {
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleSearchValueChange = event => {
+    setSearchValue(event.target.value);
+  };
+
   return (
     <Container>
-      <SearchInput type="text" placeholder="Search" />
+      <SearchInput
+        type="text"
+        onChange={handleSearchValueChange}
+        placeholder="Search"
+      />
       <StyledMagnifyIcon
         color={theme.color.main}
-        onClick={() => searchMovie("harry")}
+        onClick={() => searchMovie(searchValue)}
       />
     </Container>
   );

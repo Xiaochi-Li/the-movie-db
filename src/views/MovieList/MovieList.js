@@ -5,9 +5,8 @@ import { observer } from "mobx-react";
 import { PropTypes } from "prop-types";
 
 import MovieListHeader from "./MovieListHeader";
-import Typography from "../../components/Typography/Typography";
+import { Typography, MovieCard } from "../../components";
 import ThemePropTypes from "../../assets/ThemePropTypes";
-import MovieCard from "../../components/MovieCard";
 
 const ViewContainer = styled("div")(
   ({ theme }) => `

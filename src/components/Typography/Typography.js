@@ -6,6 +6,8 @@ import ThemePropTypes from "../../assets/ThemePropTypes";
 import variantsMap from "./variantsMap";
 import { observer } from "mobx-react";
 
+// Typography component renders all text content on demand.
+// It has default variants styles but also take customise styles.
 const Typography = ({
   variant,
   color,
@@ -15,7 +17,7 @@ const Typography = ({
 }) => {
   // Get correct variant or default to body - PropTypes will throw a warning if wrong
   const selectedVariant = variantsMap.get(variant) || variantsMap.get("body");
-  // Decide what html tag to use. Use the provided, or the variants default
+  // Decide what html tag to use. Use the variants default at the moment.
   const HTMLTag = selectedVariant.as;
   return (
     <HTMLTag

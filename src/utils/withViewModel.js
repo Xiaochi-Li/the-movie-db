@@ -1,6 +1,8 @@
 import { inject } from "mobx-react";
 import React from "react";
 
+// a higher order component inject related viewModel when navigate to new page,
+// destroy the viewModel of previous page.
 function withViewModel(viewName, id) {
   return WrappedComponent =>
     inject("store")(
