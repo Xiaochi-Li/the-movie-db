@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Tools used for this project
 
-## Available Scripts
+1. React.js for front end development.
+2. Mobx and Mobx State Tree is used for state management;
+3. styled-component for creating and apply theme as well as edit component's css style.
+4. prettier for codying style regulation.
+5. React Router for app navigation.
 
-In the project directory, you can run:
+### System design decisions
 
-### `npm start`
+1. Completely separate business logic and UI, all logic is in mobxCore. Doing so enhances the
+   maintenance when the application grows larger and state shape getting more complicated.Because all business logic is handled by mobx, only in very rare case a UI component will have state
+   , simple logic is handled using hooks, thus all react components are Stateless functional components. Doing so increases performance.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. whenever the state changed, a snapshot of the current state is stored in localStorage as JSON string. When store object is recreated, the previous state snapshot is applied to the state if available.
+   Doing so increase user experience, because the state of user interaction is kept even user refresh their page. For example, the user searched for the movie and navigate to the detail page to view more information.
+   If he/ she accident refreshed the page, the movie he was viewing will still show the same info. He doesn't have to navigate back to the main page to search again.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+3. There are three kinds of mobx models with in the state.
 
-### `npm test`
+   1. Data model, such as MovieModel, defines data types.
+   2. App models stores main state data and basic actions to update state.
+   3. View models act as a middle part communicate between app models and user interface. It data and actions needed for certain pages
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. The app is build responsively to ensure the user experience consistent on web browser, tablets and major mobile phones.
 
-### `npm run build`
+5. theme is defined and provided by styled-components' theme provider. It is consumable among the entire app.
+   doing so ensure style consistence.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+6. small components such Typography is designed in a highly flexible and reusable manner. It has a default style. but the style can be easily overridden by
+   simply passing in a customized style prop. It can be easily reused in other projects.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+7. several unit test and React component test case are conducted. but the test coverage is not 100% at the moment due to the strict deadline.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### future improvements
 
-### `npm run eject`
+1. most of the spacing css values are not defined in the theme, it is beneficial to work with designer to regulate spacing values to further improve style consistency
+2. image size config value is hard coded. Will develop api helper functions to get configs from Movie DB api
+3. error handling for all API calls.
+4. Will discuss with designers to adjust UI styles for movie that has very long name. Not much details are provided from Figma.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Installation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. down load the package, or run `git clone https://github.com/Xiaochi-Li/the-movie-db.git`
+1. run `yarn` to install packages.
+1. run `yarn start` to run the-movie-db app on Local server
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Build
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+run `yarn build` to build the product.
 
-## Learn More
+### Testing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+run `yarn test` to run all test case in watch mode.
+If test can't the run in watch mode, one main reason can be something with watchman package.
+Try `brew install watchman`.
