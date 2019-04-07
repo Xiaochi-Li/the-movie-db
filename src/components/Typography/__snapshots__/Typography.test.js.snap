@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Can create Typography 1`] = `
+<p
+  style={
+    Object {
+      "color": "#9FBBC7",
+      "fontFamily": "Roboto",
+      "fontSize": "16px",
+      "fontWeight": "normal",
+      "lineHeight": "24px",
+    }
+  }
+  varian="h1"
+>
+  Test
+</p>
+`;
+
+exports[`Can create Typography 2`] = `
+<p
+  style={
+    Object {
+      "color": "#9FBBC7",
+      "fontFamily": "Roboto",
+      "fontSize": "16px",
+      "fontWeight": "normal",
+      "lineHeight": "24px",
+    }
+  }
+  varian="h2"
+>
+  Test
+</p>
+`;
+
+exports[`Can create Typography 3`] = `
+<p
+  style={
+    Object {
+      "color": "#9FBBC7",
+      "fontFamily": "Roboto",
+      "fontSize": "16px",
+      "fontWeight": "normal",
+      "lineHeight": "24px",
+    }
+  }
+  varian="h3"
+>
+  Test
+</p>
+`;
+
+exports[`Can create Typography 4`] = `
+<p
+  style={
+    Object {
+      "color": "#9FBBC7",
+      "fontFamily": "Roboto",
+      "fontSize": "16px",
+      "fontWeight": "normal",
+      "lineHeight": "24px",
+    }
+  }
+  varian="body"
+>
+  Test
+</p>
+`;
+
+exports[`Can create Typography 5`] = `
+<p
+  style={
+    Object {
+      "color": "#9FBBC7",
+      "fontFamily": "Roboto",
+      "fontSize": "16px",
+      "fontWeight": "normal",
+      "lineHeight": "24px",
+    }
+  }
+  varian="caption1"
+>
+  Test
+</p>
+`;
+
+exports[`Can create Typography 6`] = `
+<p
+  style={
+    Object {
+      "color": "#9FBBC7",
+      "fontFamily": "Roboto",
+      "fontSize": "16px",
+      "fontWeight": "normal",
+      "lineHeight": "24px",
+    }
+  }
+  varian="caption2"
+>
+  Test
+</p>
+`;
+
+exports[`Can create Typography 7`] = `
+<p
+  style={
+    Object {
+      "color": "#9FBBC7",
+      "fontFamily": "Roboto",
+      "fontSize": "16px",
+      "fontWeight": "normal",
+      "lineHeight": "24px",
+    }
+  }
+  varian="caption3"
+>
+  Test
+</p>
+`;
+
+exports[`Can override default custom css 1`] = `
+<h1
+  style={
+    Object {
+      "color": "#E3F4FC",
+      "fontFamily": " 'Montserrat', sans-serif",
+      "fontSize": "28px",
+      "fontWeight": "bold",
+      "lineHeight": "30px",
+      "margin": "12px 0",
+    }
+  }
+>
+  Styling Test
+</h1>
+`;
